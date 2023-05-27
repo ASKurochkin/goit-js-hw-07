@@ -20,9 +20,9 @@ const onClick = (event) => {
   event.preventDefault();
 
   const lightbox = new SimpleLightbox(".gallery a", {
-    animationSpeed: 250,
     captionsData: "alt",
     captionPosition: "bottom",
+    captionDelay:	250
   });
 };
 
