@@ -19,11 +19,13 @@ galleryEl.insertAdjacentHTML("afterbegin", markupGallery);
 const onClick = (event) => {
   event.preventDefault();
 
-  const lightbox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionPosition: "bottom",
-    captionDelay:	250
-  });
+    const lightbox = new SimpleLightbox(".gallery a", {
+      captionsData: "alt",
+      captionPosition: "bottom",
+      captionDelay: 250,
+    });
+
+    galleryEl.removeEventListener("click", onClick)  
 };
 
 galleryEl.addEventListener("click", onClick);

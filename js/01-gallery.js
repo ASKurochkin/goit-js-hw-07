@@ -26,19 +26,21 @@ const onClick = (event) => {
 
   const largeImg = event.target.dataset.source;
 
-  const instance = basicLightbox.create(`
-    <div class="modal">
-    <img src="${largeImg}" alt="${event.target.alt}">
-    </div>
+  if (event.target !== event.currentTarget) {
+    const instance = basicLightbox.create(`
+  <div class="modal">
+  <img src="${largeImg}" alt="${event.target.alt}">
+  </div>
 `);
-  instance.show();
+    instance.show();
 
-  document.addEventListener("keydown", handleEsc);
+    document.addEventListener("keydown", handleEsc);
 
-  function handleEsc(event) {
-    if (event.key === "Escape") {
-      instance.close();
-      document.removeEventListener("keydown", handleEsc);
+    function handleEsc(event) {
+      if (event.key === "Escape") {
+        instance.close();
+        document.removeEventListener("keydown", handleEsc);
+      }
     }
   }
 };
